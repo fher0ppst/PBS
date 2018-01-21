@@ -32,10 +32,10 @@ function ncpais()
 function sfr($dts)
 {
     $c = "INSERT INTO PAX VALUES ('$dts[6]', '$dts[2]', '$dts[3]', '$dts[4]', $dts[5], '$dts[7]', '$dts[8]', '$dts[9]', '$dts[10]', '$dts[11]', '$dts[12]', '$dts[13]', '$dts[14]', '$dts[15]', '$dts[16]', '$dts[17]', '$dts[18]', '$dts[19]', '$dts[20]', '$dts[0]', $dts[1])";
-    var_dump($c);
-    // mysqli_query($_SESSION['uncons'], $c);
+    // var_dump($c);
+    mysqli_query($_SESSION['uncons'], $c);
     $c = "INSERT INTO SUBS VALUES ('$dts[6]', '', 0, 0, 0, 0, 0, 0)";
-    // mysqli_query($_SESSION['uncons'], $c);
+    mysqli_query($_SESSION['uncons'], $c);
 }
 
 function obc()

@@ -99,7 +99,7 @@ function IOG(datasource, divId, prmts, gky, XMLHttpRequestObject) {
 		switch (gky) {
 		case 0:
 			XMLHttpRequestObject.send("acept=" + prmts);
-//			document.getElementById("Send").type = "submit";
+			document.getElementById("Send").type = "submit";
 			break;
 		}
 	}
@@ -126,7 +126,7 @@ function shw(p) {
 function vrf() {
 	var z = document.getElementById("pssr");
 	if (z.value != "") {
-//		document.getElementById("acepto").type = "submit";
+		document.getElementById("acepto").type = "submit";
 	} else {
 		alert("Ingrese su numero de pasaporte para continuar");
 	}
