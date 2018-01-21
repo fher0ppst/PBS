@@ -75,10 +75,6 @@ function precons()
     $usdb = 'nosu';
     $psd = '932GypOdYb4UH4mh';
     $ndlb = 'HXC';
-    // $srvr = 'localhost';
-    // $usdb = 'r8s8q9i4_us2018';
-    // $psd = '.(@K6W*6seh}';
-    // $ndlb = 'r8s8q9i4_bs2018';
     return $srvr . '#' . $usdb . '#' . $psd . '#' . $ndlb;
 }
 
