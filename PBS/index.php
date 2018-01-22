@@ -152,9 +152,13 @@ if (isset($_POST['acepto'])) {
 									</select>
 									</div>
 									<div class="12u$">
-										<label for="demo-priority-low">Imagen principal de pasaporte</label>
+										<label for="demo-priority-low">Imagen principal de pasaporte </label>
 										<input type="file" name="f1" id="f1" placeholder="Pasaporte"
 											onchange="rl(this.id);" />
+									</div>
+									<div class="12u$">
+										<label for="demo-priority-low">Formatos de archivo
+											compatibles: PNG, JPEG, JPG, PDF</label>
 									</div>
 								</div>
 								<hr>
@@ -254,15 +258,15 @@ if (isset($_POST['acepto'])) {
 		</footer>
 
 	</div>
-
+	<script>
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/relf.js"></script>
-	<script src="assets/js/main.js"></script>
-
+	window.jQuery || document.write('<script src="assets/js/jquery.min.js"><\/script>');
+	window.jQuery || document.write('<script src="assets/js/jquery.scrollex.min.js"><\/script>');
+	window.jQuery || document.write('<script src="assets/js/jquery.scrolly.min.js"><\/script>');
+	window.jQuery || document.write('<script src="assets/js/skel.min.js"><\/script>');
+	window.jQuery || document.write('<script src="assets/js/util.js"><\/script>');
+	window.jQuery || document.write('<script src="assets/js/relf.js"><\/script>');
+	window.jQuery || document.write('<script src="assets/js/main.js"><\/script>');
+	</script>
 </body>
 </html>
