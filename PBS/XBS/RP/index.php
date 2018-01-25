@@ -16,7 +16,8 @@
 				<p>Consolidado de inscripciones</p>
 			</header>
 			<div class="row">
-				<form action="index.php" method="post">
+				<form action="index.php" method="post"
+					enctype="application/x-www-form-urlencoded">
 					<div class="12u">
 						<section class="box">
 							<ul class="actions fit">

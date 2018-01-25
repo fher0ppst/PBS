@@ -54,24 +54,23 @@ if (isset($_POST['acepto'])) {
 			</h1>
 		</header>
 		<article id="main">
-			<header>
+			<header style="text-align: center;">
 				<h2>
 					<img alt="" src="XBS/images/Logob.png" width="250" height="250">
 				</h2>
 				<p>Forma parte de esta experiencia sin igual</p>
+				<ul class="actions" id="butones" style="text-align: center;">
+					<li><input type="button" value="Registrarme" class="special"
+						onclick="shw(0);" /></li>
+					<li><input type="button" value="Ya estoy registrado"
+						class="special" onclick="shw(1);" /></li>
+				</ul>
 			</header>
-			<section class="wrapper style5">
-				<div class="inner">
-					<div id="mm"></div>
-					<section>
-						<form method="post" action="index.php"
-							enctype="multipart/form-data">
-							<ul class="actions" id="butones" style="text-align: center;">
-								<li><input type="button" value="Registrarme" class="special"
-									onclick="shw(0);" /></li>
-								<li><input type="button" value="Ya estoy registrado"
-									class="special" onclick="shw(1);" /></li>
-							</ul>
+			<form method="post" action="index.php" enctype="multipart/form-data">
+				<section class="wrapper style5" hidden="">
+					<div class="inner">
+						<div id="mm"></div>
+						<section>
 							<div id="ff" hidden="">
 								<div class="row uniform">
 									<div class="6u 12u$(xsmall)">
@@ -242,10 +241,10 @@ if (isset($_POST['acepto'])) {
 								</ul>
 							</div>
 							<div id="rel"></div>
-						</form>
-					</section>
-				</div>
-			</section>
+						</section>
+					</div>
+				</section>
+			</form>
 		</article>
 
 		<!-- Footer -->

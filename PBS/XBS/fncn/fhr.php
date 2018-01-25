@@ -32,7 +32,6 @@ function ncpais()
 function sfr($dts)
 {
     $c = "INSERT INTO PAX VALUES ('$dts[6]', '$dts[2]', '$dts[3]', '$dts[4]', $dts[5], '$dts[7]', '$dts[8]', '$dts[9]', '$dts[10]', '$dts[11]', '$dts[12]', '$dts[13]', '$dts[14]', '$dts[15]', '$dts[16]', '$dts[17]', '$dts[18]', '$dts[19]', '$dts[20]', '$dts[0]', $dts[1])";
-    // var_dump($c);
     mysqli_query($_SESSION['uncons'], $c);
     $c = "INSERT INTO SUBS VALUES ('$dts[6]', '', 0, 0, 0, 0, 0, 0)";
     mysqli_query($_SESSION['uncons'], $c);
@@ -40,18 +39,18 @@ function sfr($dts)
 
 function obc()
 {
-    $c = "SELECT NU_PASS FROM PAX";
+    $c = "SELECT NU_PASS FROM PAX ORDER BY PAX.ZONA ASC";
     $xc = mysqli_query($_SESSION['uncons'], $c);
     $num = mysqli_num_rows($xc);
     for ($i = 0; $i < $num; $i ++) {
         $rxc[$i] = mysqli_fetch_array($xc, MYSQLI_NUM)[0];
     }
-    // var_dump($rxc);
     for ($i = 0; $i < count($rxc); $i ++) {
-        $c = "SELECT PAX.NOM_PAX, PAX.APE_PAX, PAX.ZONA, PAX.EMAIL_PAX, SUBS.S1, SUBS.S2, SUBS.S3, SUBS.S4, SUBS.S5, SUBS.S6 FROM PAX INNER JOIN SUBS ON PAX.NU_PASS = SUBS.NU_PASS WHERE PAX.NU_PASS = '$rxc[$i]'";
-        $rx[$i] = mysqli_fetch_array($c, MYSQLI_NUM);
+        $c = "SELECT PAX.NU_PASS, CONCAT(PAX.NOM_PAX, ' ', PAX.APE_PAX) AS NOMBRE, PAX.ZONA, PAX.EMAIL_PAX, SUBS.S1, SUBS.S2, SUBS.S3, SUBS.S4, SUBS.S5, SUBS.S6 FROM PAX INNER JOIN SUBS ON PAX.NU_PASS = SUBS.NU_PASS WHERE PAX.NU_PASS = '$rxc[$i]'";
+        $aux = mysqli_query($_SESSION['uncons'], $c);
+        $rx[$i] = mysqli_fetch_array($aux, MYSQLI_NUM);
     }
-    var_dump($rx);
+    return $rx;
 }
 
 function inic($a)
