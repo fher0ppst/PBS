@@ -46,7 +46,8 @@ function obc()
         $rxc[$i] = mysqli_fetch_array($xc, MYSQLI_NUM)[0];
     }
     for ($i = 0; $i < count($rxc); $i ++) {
-        $c = "SELECT PAX.NU_PASS, CONCAT(PAX.NOM_PAX, ' ', PAX.APE_PAX) AS NOMBRE, PAX.ZONA, PAX.EMAIL_PAX, SUBS.S1, SUBS.S2, SUBS.S3, SUBS.S4, SUBS.S5, SUBS.S6 FROM PAX INNER JOIN SUBS ON PAX.NU_PASS = SUBS.NU_PASS WHERE PAX.NU_PASS = '$rxc[$i]'";
+        $c = "SELECT PAX.NU_PASS, CONCAT(PAX.NOM_PAX, ' ', PAX.APE_PAX) AS NOMBRE, PAX.ZONA, PAX.EMAIL_PAX, T_VISA FROM PAX WHERE PAX.NU_PASS = '$rxc[$i]'";
+//         var_dump($c);
         $aux = mysqli_query($_SESSION['uncons'], $c);
         $rx[$i] = mysqli_fetch_array($aux, MYSQLI_NUM);
     }
