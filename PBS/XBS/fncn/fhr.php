@@ -46,10 +46,29 @@ function obc()
         $rxc[$i] = mysqli_fetch_array($xc, MYSQLI_NUM)[0];
     }
     for ($i = 0; $i < count($rxc); $i ++) {
-        $c = "SELECT PAX.NU_PASS, CONCAT(PAX.NOM_PAX, ' ', PAX.APE_PAX) AS NOMBRE, PAX.ZONA, PAX.EMAIL_PAX, T_VISA FROM PAX WHERE PAX.NU_PASS = '$rxc[$i]'";
-//         var_dump($c);
+        $c = "SELECT PAX.NU_PASS, CONCAT(PAX.NOM_PAX, ' ', PAX.APE_PAX) AS NOMBRE, PAX.ZONA, PAX.EMAIL_PAX, T_VISA, PAX.ZONA FROM PAX WHERE PAX.NU_PASS = '$rxc[$i]' && NOM_PAX!='Nombres según pasaporte'";
         $aux = mysqli_query($_SESSION['uncons'], $c);
         $rx[$i] = mysqli_fetch_array($aux, MYSQLI_NUM);
+    }
+    return $rx;
+}
+
+function obcin()
+{
+    $c = "SELECT NU_PASS FROM PAX ORDER BY PAX.ZONA ASC";
+    $xc = mysqli_query($_SESSION['uncons'], $c);
+    $num = mysqli_num_rows($xc);
+    for ($i = 0; $i < $num; $i ++) {
+        $rxc[$i] = mysqli_fetch_array($xc, MYSQLI_NUM)[0];
+    }
+    for ($i = 0; $i < count($rxc); $i ++) {
+        $c = "SELECT PAX.NU_PASS, PAX.EMAIL_PAX, PAX.ZONA FROM PAX WHERE PAX.NU_PASS = '$rxc[$i]' && NOM_PAX='Nombres según pasaporte'";
+        $aux = mysqli_query($_SESSION['uncons'], $c);
+        // $num = mysqli_num_rows($xc);
+        $aux2 = mysqli_fetch_array($aux, MYSQLI_NUM);
+        if ($rx[$i] != NULL) {
+            $rx[$i] = $aux2;
+        }
     }
     return $rx;
 }
